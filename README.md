@@ -56,5 +56,5 @@ plain_str = string(z)           # "(3 + 2i)/5"
 latex_str = string(z, do_latex=true)     # LaTeX code for display
 ```
 
-## 👥 Author 
+## Author 
 - [Michael Schilling](https://github.com/Ntropic)
