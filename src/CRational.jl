@@ -388,7 +388,7 @@ function complexrational2str(x::ComplexRational, do_latex::Bool=false)::String
 end
 
 
-import Base: show
+import Base: show, string
 function show(io::IO, ::MIME"text/plain", x::ComplexRational)
     print(io, complexrational_plain(x))
 end
