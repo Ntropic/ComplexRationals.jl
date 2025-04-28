@@ -1,6 +1,6 @@
 # CRational.jl
 
-[![CI](https://github.com/Ntropic/CRational.jl/actions/workflows/ci.yml/badge.svg)](https://github.com/Ntropic/CRational.jl/actions/workflows/ci.yml)
+[![Build Status](https://github.com/Ntropic/CRational.jl/actions/workflows/CI.yml/badge.svg)](https://github.com/Ntropic/CRational.jl/actions/workflows/CI.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 **CRational.jl** defines a `ComplexRational` number type for Julia:  
