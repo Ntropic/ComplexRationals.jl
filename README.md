@@ -23,6 +23,11 @@ while automatically promoting to floating-point `Complex{Float64}` if necessary.
 using Pkg
 Pkg.add("CRational")
 ```
+or alternatively
+```julia
+using Pkg
+Pkg.add(url="https://github.com/Ntropic/CRational.jl")
+```
 
 ## Examples
 ```julia
