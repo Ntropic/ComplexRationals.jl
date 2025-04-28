@@ -1,0 +1,19 @@
+name = "CRational"
+uuid = "fec49eec-9feb-41dd-a20b-fe4c3aae4e50"
+authors = ["Michael Schilling"]
+version = "0.1.0"
+
+[deps]
+LaTeXStrings = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
+Preferences = "21216c6a-2e73-6563-6e65-726566657250"
+
+[compat]
+LaTeXStrings = "1.4.0"
+Preferences = "1.4.3"
+julia = "1.6.7"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
