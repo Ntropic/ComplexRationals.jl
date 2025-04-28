@@ -1,9 +1,9 @@
-# CRational.jl
+# ComplexRational.jl
 
-[![Build Status](https://github.com/Ntropic/CRational.jl/actions/workflows/CI.yml/badge.svg)](https://github.com/Ntropic/CRational.jl/actions/workflows/CI.yml)
+[![Build Status](https://github.com/Ntropic/ComplexRational.jl/actions/workflows/CI.yml/badge.svg)](https://github.com/Ntropic/ComplexRational.jl/actions/workflows/CI.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-**CRational.jl** defines a `ComplexRational` number type for Julia:  
+**ComplexRational.jl** defines a `ComplexRational` number type for Julia:  
 complex numbers whose real and imaginary parts are **exact integers divided by a shared denominator**.  
 This allows for precise arithmetic on small complex numbers without rounding errors,  
 while automatically promoting to floating-point `Complex{Float64}` if necessary.
@@ -21,17 +21,17 @@ while automatically promoting to floating-point `Complex{Float64}` if necessary.
 ## Installation 
 ```julia
 using Pkg
-Pkg.add("CRational")
+Pkg.add("ComplexRational")
 ```
 or alternatively
 ```julia
 using Pkg
-Pkg.add(url="https://github.com/Ntropic/CRational.jl")
+Pkg.add(url="https://github.com/Ntropic/ComplexRational.jl")
 ```
 
 ## Examples
 ```julia
-using CRational
+using ComplexRational
 
 # Create a ComplexRational number
 z = ComplexRational(3, 2, 5)  # (3 + 2i)/5

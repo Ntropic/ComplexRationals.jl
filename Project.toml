@@ -1,4 +1,4 @@
-name = "CRational"
+name = "ComplexRational"
 uuid = "fec49eec-9feb-41dd-a20b-fe4c3aae4e50"
 authors = ["Michael Schilling"]
 version = "0.1.0"
