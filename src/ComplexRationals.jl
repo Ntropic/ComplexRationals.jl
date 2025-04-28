@@ -1,4 +1,4 @@
-module ComplexRational
+module ComplexRationals
 
 using Preferences, LaTeXStrings
 
@@ -405,4 +405,4 @@ end
 function string(x::ComplexRational; do_latex::Bool=false)
     complexrational2str(x, do_latex)
 end
-end # module ComplexRational
+end # module ComplexRationals

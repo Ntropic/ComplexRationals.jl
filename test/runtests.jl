@@ -1,10 +1,10 @@
-#include("../src/ComplexRational.jl")
+#include("../src/ComplexRationals.jl")
 using Test
-using ComplexRational
+using ComplexRationals
 
 @testset "ComplexRational Basic Tests" begin
     z1 = ComplexRational(3, 2, 10)
-    @test z1 isa ComplexRational.ComplexRational
+    @test z1 isa ComplexRationals.ComplexRational
     @test z1.a == 3
     @test z1.b == 2
     @test z1.c == 10
