@@ -402,4 +402,7 @@ function show(io::IO, x::ComplexRational)
     show(io::IO, MIME"text/plain"(), x::ComplexRational)
 end
 
+function string(x::ComplexRational; do_latex::Bool=false)
+    complexrational2str(x, do_latex)
+end
 end # module CRational
