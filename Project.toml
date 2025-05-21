@@ -1,7 +1,7 @@
 name = "ComplexRationals"
 uuid = "fec49eec-9feb-41dd-a20b-fe4c3aae4e50"
 authors = ["Michael Schilling"]
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 LaTeXStrings = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
