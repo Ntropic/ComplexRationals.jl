@@ -308,7 +308,7 @@ function custom_sort_key(x)
     else
         # For mixed numbers, use abs(x) as the magnitude.
         # (abs works for built-in Complex; for ComplexRational it is defined to convert via complex)
-        return (2, real(complex(abs(x))), 0.0)
+        return (2, real(complex(real(x))), imag(complex(imag(x))))
     end
 end
 
