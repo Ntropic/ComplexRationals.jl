@@ -258,11 +258,9 @@ conj(x::ComplexRational) = ComplexRational(x.a, -x.b, x.c)  # conjugate
 import Base: one, zero, inv
 # Identity (multiplicative identity)
 one(::Type{ComplexRational}) = ComplexRational(1, 0, 1)
-one(x::ComplexRational) = ComplexRational(1, 0, 1)
 
 # Zero (additive identity)
 zero(::Type{ComplexRational}) = ComplexRational(0, 0, 1)
-zero(x::ComplexRational) = ComplexRational(0, 0, 1)
 
 # Inverse (reciprocal)
 inv(x::ComplexRational) = ComplexRational(x.c * x.a, -x.c * x.b, x.a^2 + x.b^2)
@@ -329,7 +327,11 @@ function complexrational_plain(x::ComplexRational)
         return (x.a < 0 ? "-" * string(abs(x.a)) : string(x.a)) * denom_str
     elseif x.a == 0
         # Only imaginary part.
-        return (x.b < 0 ? "-" * string(abs(x.b)) : string(x.b)) * "i" * denom_str
+        if abs(x.b) == 1 && x.c == 1
+            return x.b < 0 ? "-i" : "i"
+        else
+            return (x.b < 0 ? "-" : "") * string(abs(x.b)) * "i" * denom_str
+        end
     else
         # Both parts.
         if x.a < 0
@@ -359,10 +361,12 @@ function complexrational_latex(x::ComplexRational)
     elseif x.a == 0
         # Only imaginary part.
         # Now we print the coefficient followed by i.
-        if x.b < 0
-            return "-" * (x.c == 1 ? string(abs(x.b)) * "i" : "\\frac{" * string(abs(x.b)) * "i}{" * string(x.c) * "}")
+        if abs(x.b) == 1 && x.c == 1
+            return x.b < 0 ? "-i" : "i"
         else
-            return x.c == 1 ? string(x.b) * "i" : "\\frac{" * string(x.b) * "i}{" * string(x.c) * "}"
+            num = string(abs(x.b)) * "i"
+            return x.b < 0 ? "-" * (x.c == 1 ? num : "\\frac{$num}{" * string(x.c) * "}") :
+                             (x.c == 1 ? num : "\\frac{$num}{" * string(x.c) * "}")
         end
     else
         # Both parts.

@@ -91,8 +91,8 @@ end
 @testset "Identity and Inverse Tests" begin
     z = ComplexRational(3, 4, 5)
 
-    @test one(z) == ComplexRational(1, 0, 1)
-    @test zero(z) == ComplexRational(0, 0, 1)
+    @test one(ComplexRational) == ComplexRational(1, 0, 1)
+    @test zero(ComplexRational) == ComplexRational(0, 0, 1)
 
     invz = inv(z)
     # inv((3+4i)/5) = (3 - 4i)/(3^2 + 4^2) = (3 - 4i)/25
