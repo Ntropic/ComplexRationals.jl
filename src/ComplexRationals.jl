@@ -3,7 +3,7 @@ module ComplexRationals
 using Preferences, LaTeXStrings
 
 
-export set_default_digits, get_default_digits, ComplexRational, crationalize, custom_sort_key, sort_mixed, complexrational2str, is_negative
+export set_default_digits, get_default_digits, ComplexRational, crationalize, custom_sort_key, sort_mixed, complexrational2str, is_negative, isonelike
 
 # === Default Coefficient Preferences ===
 const DEFAULT_COEFF_PREFS = Dict(
@@ -134,7 +134,7 @@ end
 # ------------------------------------------------------------------------------
 # iszero, real, and imag functions.
 # ------------------------------------------------------------------------------
-import Base: iszero, isone, real, imag
+import Base: iszero, isone, real, imag, isreal
 
 iszero(x::ComplexRational) = (x.a == 0 && x.b == 0)
 isone(x::ComplexRational) = (x.a == x.c && x.b == 0)
@@ -145,6 +145,17 @@ end
 
 function imag(x::ComplexRational)
     return ComplexRational(x.b, 0, x.c)
+end
+
+function isreal(x::ComplexRational)
+    return (x.b == 0)
+end
+
+function isonelike(c::ComplexRational)::Bool 
+    if c.c == 1 && ( c.b == 0 && abs(c.a) == 1 )
+        return true 
+    end
+    return false
 end
 
 # For a Rational number, simply convert it to ComplexRational (with zero imaginary part).
