@@ -7,9 +7,8 @@ export set_default_digits, get_default_digits, ComplexRational, crationalize, cu
 
 # === Default Coefficient Preferences ===
 const DEFAULT_COEFF_PREFS = Dict(
-    :DEFAULT_DIGITS => 2,
-    :FLOAT_DIGITS => 2,
-    :EXP_DIGITS => 2)
+    :DEFAULT_DIGITS => 2
+    )
 
 
 function get_default(name::Symbol)
@@ -166,8 +165,8 @@ end
 # For a Complex number, crationalize the real and imaginary parts separately.
 function crationalize(x::Complex; tol::Real=1e-12)
     # Here, Julia's built-in crationalize for Float64 is used for the real parts.
-    r = rationalize(real(x), tol=tol)
-    i = rationalize(imag(x), tol=tol)
+    r = rationalize(real(x*1), tol=tol)
+    i = rationalize(imag(x*1), tol=tol)
     # Extract numerators and denominators.
     p, q = numerator(r), denominator(r)
     r_im, s = numerator(i), denominator(i)
