@@ -5,8 +5,7 @@
 
 **ComplexRationals.jl** defines a `ComplexRational` number type for Julia:  
 complex numbers whose real and imaginary parts are **exact integers divided by a shared denominator**.  
-This allows for precise arithmetic on small complex numbers without rounding errors,  
-while automatically promoting to floating-point `Complex{Float64}` if necessary.
+This allows for precise arithmetic on small complex numbers without rounding errors.
 
 ---
 

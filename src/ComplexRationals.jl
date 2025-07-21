@@ -1,40 +1,10 @@
 module ComplexRationals
 
-using Preferences, LaTeXStrings
+using LaTeXStrings
 
 
-export set_default_digits, get_default_digits, ComplexRational, crationalize, custom_sort_key, sort_mixed, complexrational2str, is_negative, isonelike
+export  ComplexRational, crationalize, custom_sort_key, sort_mixed, complexrational2str, is_negative, isonelike
 
-# === Default Coefficient Preferences ===
-const DEFAULT_COEFF_PREFS = Dict(
-    :DEFAULT_DIGITS => 2
-    )
-
-
-function get_default(name::Symbol)
-    return @load_preference(String(name), DEFAULT_COEFF_PREFS[name])
-end
-function set_default(name::Symbol, value)
-    @set_preferences!(String(name) => value)
-end
-
-"""
-    set_default_digits(d::Int)
-
-Sets the default number of digits for displaying coefficients.
-"""
-function set_default_digits(d::Int)
-    set_default(:DEFAULT_DIGITS, d)
-end
-
-"""
-    get_default_digits() -> Int
-
-Returns the current default number of digits for displaying coefficients.
-"""
-function get_default_digits()
-    return get_default(:DEFAULT_DIGITS)
-end
 
 # Define the ComplexRational type with an inner constructor that does the conversion.
 struct ComplexRational <: Number
@@ -53,10 +23,6 @@ struct ComplexRational <: Number
         g = gcd(gcd(abs(a), abs(b)), c)
         a, b, c = div(a, g), div(b, g), div(c, g)
         # If the denominator has too many digits, return a Complex{Float64}
-        if length(string(c)) > get_default(:DEFAULT_DIGITS)
-            # Compute a float complex number from a, b, c.
-            return complex(a, b) / c
-        end
         new(a, b, c)
     end
 end

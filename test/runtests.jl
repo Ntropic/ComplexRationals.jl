@@ -2,6 +2,9 @@
 using Test
 using ComplexRationals
 
+import Base: isapprox
+
+
 @testset "ComplexRational Basic Tests" begin
     z1 = ComplexRational(3, 2, 10)
     @test z1 isa ComplexRationals.ComplexRational
@@ -10,8 +13,8 @@ using ComplexRationals
     @test z1.c == 10
 
     z2 = ComplexRational(3, 2, 1234)
-    @test z2 isa Complex{Float64}
-    @test isapprox(z2, complex(3 / 1234, 2 / 1234))
+    @test z2 isa ComplexRational
+    @test isapprox(convert(Complex, z2), complex(3 / 1234, 2 / 1234))
 
     # Normalization
     a = ComplexRational(2, 4, 6)
