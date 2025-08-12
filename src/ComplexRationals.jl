@@ -385,4 +385,14 @@ end
 function string(x::ComplexRational; do_latex::Bool=false)
     complexrational2str(x, do_latex)
 end
+
+import Base: isapprox
+
+function isapprox(x::ComplexRational, y::Number; rtol=1e-12, atol=0.0) 
+    real_x = x.a/x.c 
+    imag_x = x.b/x.c 
+    return isapprox(real_x, real(y), rtol=rtol, atol=atol) && isapprox(imag_x, imag(y), rtol=rtol, atol=atol)
+end
+isapprox(x::Number, y::ComplexRational; kwargs...) = isapprox(y, x; kwargs...)
+
 end # module ComplexRationals
