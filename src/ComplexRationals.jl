@@ -388,6 +388,13 @@ end
 
 import Base: isapprox
 
+function isapprox(x::ComplexRational, y::ComplexRational; rtol=1e-12, atol=0.0) 
+    real_x = x.a/x.c 
+    imag_x = x.b/x.c 
+    real_y = y.a/y.c 
+    imag_y = y.b/y.c 
+    return isapprox(real_x, real_y, rtol=rtol, atol=atol) && isapprox(imag_x, imag_y, rtol=rtol, atol=atol)
+end
 function isapprox(x::ComplexRational, y::Number; rtol=1e-12, atol=0.0) 
     real_x = x.a/x.c 
     imag_x = x.b/x.c 
